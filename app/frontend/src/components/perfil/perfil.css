@@ -1,0 +1,26 @@
+.perfil {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.imagePerfil {
+  background-image: url('../../../public/image.png');
+  background-size: 150px;
+  width: 150px;
+  height: 140px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.perfilText {
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.perfilDesc {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+}
