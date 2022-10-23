@@ -1,11 +1,11 @@
 import './perfil.css';
 
-interface PerfilInterface {
+interface InterfacePerfil {
   name: string;
   age: number;
   email: string;
 }
-export const Perfil = ({ name, age, email }: PerfilInterface) => {
+export const Perfil = ({ name, age, email }: InterfacePerfil) => {
   return (
     <div className='perfil'>
       <div className='imagePerfil'></div>

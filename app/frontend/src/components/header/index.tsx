@@ -1,10 +1,10 @@
 import { Input } from '../input';
 import './header.css';
 
-interface value {
+interface InterfaceValue {
   value: string;
 }
-export const Header = ({ value }: value) => {
+export const Header = ({ value }: InterfaceValue) => {
   return (
     <div className='header'>
       <div>
