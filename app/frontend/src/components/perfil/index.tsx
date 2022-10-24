@@ -1,14 +1,11 @@
+import { IPerfil } from '../../@types/perfil';
 import './perfil.css';
 
-interface InterfacePerfil {
-  name: string;
-  age: number;
-  email: string;
-}
-export const Perfil = ({ name, age, email }: InterfacePerfil) => {
+export const Perfil = ({ name, age, email, image }: IPerfil) => {
+  var urlImage = image ? image : require('../../image/image.png');
   return (
     <div className='perfil'>
-      <div className='imagePerfil'></div>
+      <img src={urlImage} alt='' className='imagePerfil'></img>
       <div className='perfilDesc'>
         <div className='perfilText'>name: {name}</div>
         <div className='perfilText'>age: {age}</div>
