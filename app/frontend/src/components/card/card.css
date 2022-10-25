@@ -1,6 +1,6 @@
 .containerCard {
   width: 240px;
-  height: 320px;
+  height: 325px;
   border-radius: 20px;
   border: 2px solid black;
   align-items: center;
@@ -12,7 +12,10 @@
 .textCard {
   font-size: 15px;
   margin-left: 10px;
+  margin-right: 10px;
   font-family: sans-serif;
+  overflow: auto;
+  overflow-wrap: break-word;
 }
 .image {
   width: 180px;

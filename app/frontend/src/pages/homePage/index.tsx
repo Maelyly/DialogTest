@@ -6,7 +6,7 @@ import './homePage.css';
 export const HomePage = () => {
   var value = '';
 
-  var listFriends = useSearch('');
+  var listFriends = useSearch(value);
 
   return (
     <div className='container'>

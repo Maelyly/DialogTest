@@ -6,6 +6,7 @@ import * as db from '../../../db.json' assert { 'type': 'json' };
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
+
 const typeDefs = `#graphql
     type user {
     name: String, 
@@ -55,8 +56,13 @@ const dic = (text: string) => {
 
   var temp = text.split(',');
   for (var i in temp) {
-    var keys = temp[i].split(':');
-    dict.set(keys[0], keys[1]);
+    if (temp[i].indexOf('https://') == -1) {
+      var keys = temp[i].split(':');
+      dict.set(keys[0], keys[1]);
+    } else {
+      var keys = temp[i].split('picture":');
+      dict.set('"picture"', keys[1]);
+    }
   }
   return dict;
 };

@@ -11,12 +11,14 @@ export const useSearch = (name: string) => {
         eyeColor
         age
         _id
+        picture
         friends {
           name
           email
           company
           eyeColor
           age
+          picture
           _id
         }
       }
@@ -26,7 +28,6 @@ export const useSearch = (name: string) => {
   const { loading, error, data } = useQuery(SearchUser, {
     variables: { name },
   });
-  console.log(name);
 
   if (loading) return alert('Loading...');
   if (error) return alert(error);
@@ -34,17 +35,17 @@ export const useSearch = (name: string) => {
   var listFriends = [];
   for (var i = 0; i < data.list.length; i++) {
     var user: IFriends = {
-      id: data.list[i]._id,
-      name: data.list[i].name,
-      eyeColor: data.list[i].eyeColor,
-      company: data.list[i].company,
+      id: data.list[i]._id?.replace('"', '').replace('"', ''),
+      name: data.list[i].name?.replace('"', '').replace('"', ''),
+      eyeColor: data.list[i].eyeColor?.replace('"', '').replace('"', ''),
+      company: data.list[i].company?.replace('"', '').replace('"', ''),
       age: data.list[i].age,
-      email: data.list[i].email,
-      image: data.list[i].picture,
+      email: data.list[i].email?.replace('"', '').replace('"', ''),
+      image: data.list[i].picture?.replace('"', '').replace('"', ''),
       friends: data.list[i].friends,
     };
     listFriends.push(user);
   }
-  console.log(listFriends);
+  console.log('return: ', listFriends);
   return listFriends;
 };

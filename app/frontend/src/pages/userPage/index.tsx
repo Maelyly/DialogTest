@@ -14,9 +14,11 @@ export const UserPage = () => {
     const GetList = () => {
       var _id = '';
       if (id !== undefined) {
+        console.log(id);
         _id = id;
       }
-      return useSearch('5f1d7f3e5dc58af42fc39242');
+
+      return useSearch(_id);
     };
     var friend = GetList();
     var temp: IFriends[] = [];
@@ -42,6 +44,7 @@ export const UserPage = () => {
   }
   const { name, friends, age, email, image } = r;
   var listCard = friends;
+  console.log('friend: ', friends);
   return (
     <div className='container'>
       <Header value={value} />
