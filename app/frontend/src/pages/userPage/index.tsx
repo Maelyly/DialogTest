@@ -5,9 +5,9 @@ import { ListCard } from '../../components/listCard';
 import { Perfil } from '../../components/perfil';
 import { useSearch } from '../../service/friends.service';
 import './userPage.css';
+import { useState } from 'react';
 
 export const UserPage = () => {
-  var value = '';
   const { id } = useParams();
 
   const searchFriend = () => {
@@ -28,6 +28,7 @@ export const UserPage = () => {
 
     return temp[0];
   };
+
   var r: IFriends = {
     name: '',
     age: 0,
@@ -38,16 +39,34 @@ export const UserPage = () => {
     id: '',
     image: '',
   };
+
   var a = searchFriend();
+
   if (a !== undefined) {
     r = a;
   }
+
   const { name, friends, age, email, image } = r;
+
   var listCard = friends;
-  console.log('friend: ', friends);
+
+  const [value, setValue] = useState('');
+
+  const Filter = (val: string) => {
+    setValue(val);
+    var listFriends = useSearch(value);
+    var listFilter = [];
+    if (listFriends) {
+      for (var a = 0; a < listFriends.length; a++) {
+        if (friends.includes(listFriends[a])) {
+          listFilter.push(a);
+        }
+      }
+    }
+  };
   return (
     <div className='container'>
-      <Header value={value} />
+      <Header onChange={Filter} />
       <Perfil name={name} age={age} email={email} image={image} />
       <div className='textUserPage'>Friends:</div>
       <div>

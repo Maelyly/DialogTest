@@ -1,3 +1,3 @@
 export interface IHeader {
-  value: string;
+  onChange: (val: string) => void;
 }

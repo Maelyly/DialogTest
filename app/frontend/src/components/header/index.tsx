@@ -2,7 +2,7 @@ import { IHeader } from '../../@types/header';
 import { Input } from '../input';
 import './header.css';
 
-export const Header = ({ value }: IHeader) => {
+export const Header = ({ onChange }: IHeader) => {
   return (
     <div className='header'>
       <div>
@@ -13,7 +13,7 @@ export const Header = ({ value }: IHeader) => {
           name='name'
           label=' search'
           onChange={(e: React.FormEvent<HTMLInputElement>) => {
-            value = e.currentTarget.value;
+            onChange(e.currentTarget.value);
           }}
         />
       </div>
