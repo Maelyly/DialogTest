@@ -11,6 +11,7 @@ export const Card = ({
   email,
   image,
 }: ICard) => {
+  //Não consegui recuperar o link correto das imagens, provavelmente foi um problema no split por :
   var urlImage = image ? image : require('../../image/image.png');
   return (
     <Link

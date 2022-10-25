@@ -98,7 +98,7 @@ for (var i = 0; i < dicAll.size; i++) {
   var userEye = dicAll.get(a).get('"eyeColor"');
   var userAge = dicAll.get(a).get('"age"');
   var userPicture = dicAll.get(a).get('"picture"');
-  var friends = [];
+  var friends = [dicAll.get(a).get('"friends"')];
   // for (var i = 0; i < dicAll.get(a).get('"friends"').size; i++) {
   //   var b = i.toString();
   //   var userIdF = dicAll.get(a).get('"friends"').get(b).get('"_id"');
@@ -155,6 +155,14 @@ const resolvers = {
       var t = `"${name}"`;
       for (var i = 0; i < listUser.length; i++) {
         if (filter(t, listUser[i].name.toString())) {
+          listFilter.push(listUser[i]);
+        } else if (filter(t, listUser[i]._id.toString())) {
+          listFilter.push(listUser[i]);
+        } else if (filter(t, listUser[i].eyeColor.toString())) {
+          listFilter.push(listUser[i]);
+        } else if (filter(t, listUser[i].company.toString())) {
+          listFilter.push(listUser[i]);
+        } else if (filter(t, listUser[i].email.toString())) {
           listFilter.push(listUser[i]);
         }
       }
